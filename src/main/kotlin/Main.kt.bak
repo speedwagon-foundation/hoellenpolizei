@@ -1,19 +1,16 @@
+import org.javacord.api.DiscordApiBuilder
 import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Klaxon
 import com.beust.klaxon.Parser
 import java.io.File
-import org.javacord.api.DiscordApiBuilder
-
 
 fun main() {
     val token = loadCredentials()
     if (token == null) println("--Error: failed to load credentials.")
 	var api =  DiscordApiBuilder().setToken(token).login().join()
     api.addMessageCreateListener {
-        if(it.messageContent.startsWith("!ping"))
-            {
-                it.channel.sendMessage(it.messageContent)
-            }
+        it.messageContent.startsWith("!ping")
+        it.channel.sendMessage("hello")
     }
 }
 
