@@ -7,6 +7,9 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://jcenter.bintray.com"
+    }
 }
 
 dependencies {
