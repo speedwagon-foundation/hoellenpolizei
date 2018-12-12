@@ -1,3 +1,5 @@
+import
+
 fun main() {
-    print("yeet")
+
 }
