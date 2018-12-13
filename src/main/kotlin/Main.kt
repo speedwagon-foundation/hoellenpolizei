@@ -8,12 +8,13 @@ import org.javacord.api.DiscordApiBuilder
 fun main() {
     val token = loadCredentials()
     if (token == null) println("--Error: failed to load credentials.")
-	var api =  DiscordApiBuilder().setToken(token).login().join()
+    val api = DiscordApiBuilder().setToken(token).login().join()
     api.addMessageCreateListener {
-        if(it.messageContent.startsWith("!ping"))
-            {
-                it.channel.sendMessage(it.messageContent)
-            }
+        if (it.messageContent.startsWith("!ping")) {
+            it.channel.sendMessage(it.messageContent)
+        }
+
+
     }
 }
 
@@ -25,7 +26,7 @@ fun loadCredentials(): String? {
 fun parse(fileName: String): Any? {
     val resourceDir = System.getProperty("user.dir")
     val fullPath = """$resourceDir\src\main\resources\$fileName"""
-    return File(fullPath).let {file ->
+    return File(fullPath).let { file ->
         file.reader().use {
             Parser().parse(it)
         }
