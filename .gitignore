@@ -66,4 +66,3 @@ hs_err_pid*
 
 src/main/resources/credentials.json
 .gradle/
-src/test/
