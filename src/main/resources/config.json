@@ -1,3 +1,17 @@
 {
-
+  "markup_channels": [
+    358633751670161408,
+    219101700777050114
+  ],
+  "recognisedFileTypes": {
+    "kt": "kotlin",
+    "css": "css",
+    "cs": "cs",
+    "java": "java",
+    "bash": "bash",
+    "ts": "ts",
+    "js": "js",
+    "html": "html"
+  },
+  "botId": 522309064622080010
 }
