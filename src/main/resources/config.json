@@ -11,7 +11,10 @@
     "bash": "bash",
     "ts": "ts",
     "js": "js",
-    "html": "html"
+    "html": "html",
+    "scss": "scss",
+    "sass": "scss",
+    "less": "less"
   },
   "botId": 522309064622080010
 }
