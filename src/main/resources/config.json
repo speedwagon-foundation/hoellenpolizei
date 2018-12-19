@@ -3,66 +3,66 @@
     358633751670161408,
     219101700777050114
   ],
-  "recogniedFileTypes": [
+  "recognisedFileTypes": [
     {
       "fileType": "kt",
       "highlightjs": "kotlin",
-      "iconUrl": ""
+      "iconUrl": "kotlin.png"
     },
     {
       "fileType": "css",
       "highlightjs": "css",
-      "iconUrl": ""
+      "iconUrl": "css.png"
     },
     {
       "fileType": "cs",
       "highlightjs": "cs",
-      "iconUrl": ""
+      "iconUrl": "csharp.png"
     },
     {
       "fileType": "java",
       "highlightjs": "java",
-      "iconUrl": ""
+      "iconUrl": "java.png"
     },
     {
       "fileType": "bash",
       "highlightjs": "bash",
-      "iconUrl": ""
+      "iconUrl": "bash.png"
     },
     {
       "fileType": "ts",
       "highlightjs": "ts",
-      "iconUrl": ""
+      "iconUrl": "typescript.png"
     },
     {
       "fileType": "js",
       "highlightjs": "js",
-      "iconUrl": ""
+      "iconUrl": "javascript.png"
     },
     {
       "fileType": "html",
       "highlightjs": "html",
-      "iconUrl": ""
+      "iconUrl": "html.png"
     },
     {
       "fileType": "scss",
       "highlightjs": "scss",
-      "iconUrl": ""
+      "iconUrl": "sass.png"
     },
     {
       "fileType": "sass",
       "highlightjs": "scss",
-      "iconUrl": ""
+      "iconUrl": "sass.png"
     },
     {
       "fileType": "less",
-      "highlightjs": "scss",
-      "iconUrl": ""
+      "highlightjs": "less",
+      "iconUrl": "less.png"
     },
     {
       "fileType": "py",
       "highlightjs": "python",
-      "iconUrl": ""
+      "iconUrl": "python.png"
     }
   ],
   "botId": 522309064622080010

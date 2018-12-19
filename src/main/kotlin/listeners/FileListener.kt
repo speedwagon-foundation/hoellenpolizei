@@ -1,13 +1,18 @@
 package listeners
 
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import managers.ConfigManager
-import managers.ErrorHandler
+import managers.containsFileType
+import managers.getByFileType
 import org.javacord.api.entity.message.MessageAttachment
-import org.javacord.api.entity.message.embed.EmbedBuilder
+import org.javacord.api.entity.message.MessageBuilder
 import org.javacord.api.event.message.MessageCreateEvent
 import utils.EmbedUtil
 import utils.FileUtils
-import java.awt.Color
+import java.util.*
 
 class FileListener : BaseListener() {
 
@@ -33,17 +38,23 @@ class FileListener : BaseListener() {
 
         val fileExtension = FileUtils.getExtension(attachment.fileName)
 
-        if (ConfigManager.instance.allowedLanguages.keys.contains(fileExtension)) {
+        if (ConfigManager.instance.allowedLanguages.containsFileType(fileExtension)) {
             val content = attachment.url.readText()
             val message = """
-                |```${ConfigManager.instance.allowedLanguages[fileExtension]}
+                |```${ConfigManager.instance.allowedLanguages.getByFileType(fileExtension).highlightjs}
                 |$content
                 |```
             """.trimMargin("|")
             if (content.length < 2000) {
                 attachment.message.channel.sendMessage(EmbedUtil.getFileMetaInfo(attachment.message))
-                attachment.message.channel.sendMessage(message)
-                attachment.message.delete()
+                    .thenAccept {
+                        attachment.message.channel.sendMessage(message)
+                        attachment.message.delete()
+                    }
+//                MessageBuilder()
+//                    .setEmbed(EmbedUtil.getFileMetaInfo(attachment.message))
+//                    .append(message)
+//                    .send(attachment.message.channel)
             } else {
                 attachment.message.channel.sendMessage(EmbedUtil.getErrorEmbed("Error: Unable to parse file! Reason: File is longer than 2000 characters"))
             }
