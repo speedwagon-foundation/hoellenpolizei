@@ -40,6 +40,8 @@ class FileListener : BaseListener() {
             if (content.length < 2000) {
                 attachment.message.channel.sendMessage(message)
                 attachment.message.delete()
+            } else {
+                attachment.message.channel.sendMessage(ErrorHandler.getErrorEmbed("Error: Unable to parse file! Reason: File is longer than 2000 characters"))
             }
         }
     }
