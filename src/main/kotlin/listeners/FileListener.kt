@@ -6,6 +6,7 @@ import org.javacord.api.entity.message.MessageAttachment
 import org.javacord.api.entity.message.embed.EmbedBuilder
 import org.javacord.api.event.message.MessageCreateEvent
 import utils.EmbedUtil
+import utils.FileUtils
 import java.awt.Color
 
 class FileListener : BaseListener() {
@@ -27,9 +28,10 @@ class FileListener : BaseListener() {
         println("Processing <${attachment.fileName}>")
         if (!attachment.fileName.contains(".")) {
             attachment.message.channel.sendMessage(EmbedUtil.getErrorEmbed("Error: Unable to parse file! Reason: No File extension"))
+            return
         }
 
-        val fileExtension = attachment.fileName.split(".").last()
+        val fileExtension = FileUtils.getExtension(attachment.fileName)
 
         if (ConfigManager.instance.allowedLanguages.keys.contains(fileExtension)) {
             val content = attachment.url.readText()

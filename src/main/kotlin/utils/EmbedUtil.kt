@@ -8,7 +8,7 @@ object EmbedUtil {
     fun getFileMetaInfo(message: Message): EmbedBuilder {
         return EmbedBuilder()
                 .setColor(Color.GREEN)
-                .setTitle("Author: ${message.author.displayName} [${message.attachments.first().fileName}]")
+                .setAuthor(message.attachments.first().fileName,message.attachments.first().url,)
     }
 
     fun getErrorEmbed(error: String): EmbedBuilder {

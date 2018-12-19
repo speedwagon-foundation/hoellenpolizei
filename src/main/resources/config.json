@@ -3,18 +3,67 @@
     358633751670161408,
     219101700777050114
   ],
-  "recognisedFileTypes": {
-    "kt": "kotlin",
-    "css": "css",
-    "cs": "cs",
-    "java": "java",
-    "bash": "bash",
-    "ts": "ts",
-    "js": "js",
-    "html": "html",
-    "scss": "scss",
-    "sass": "scss",
-    "less": "less"
-  },
+  "recogniedFileTypes": [
+    {
+      "fileType": "kt",
+      "highlightjs": "kotlin",
+      "iconUrl": ""
+    },
+    {
+      "fileType": "css",
+      "highlightjs": "css",
+      "iconUrl": ""
+    },
+    {
+      "fileType": "cs",
+      "highlightjs": "cs",
+      "iconUrl": ""
+    },
+    {
+      "fileType": "java",
+      "highlightjs": "java",
+      "iconUrl": ""
+    },
+    {
+      "fileType": "bash",
+      "highlightjs": "bash",
+      "iconUrl": ""
+    },
+    {
+      "fileType": "ts",
+      "highlightjs": "ts",
+      "iconUrl": ""
+    },
+    {
+      "fileType": "js",
+      "highlightjs": "js",
+      "iconUrl": ""
+    },
+    {
+      "fileType": "html",
+      "highlightjs": "html",
+      "iconUrl": ""
+    },
+    {
+      "fileType": "scss",
+      "highlightjs": "scss",
+      "iconUrl": ""
+    },
+    {
+      "fileType": "sass",
+      "highlightjs": "scss",
+      "iconUrl": ""
+    },
+    {
+      "fileType": "less",
+      "highlightjs": "scss",
+      "iconUrl": ""
+    },
+    {
+      "fileType": "py",
+      "highlightjs": "python",
+      "iconUrl": ""
+    }
+  ],
   "botId": 522309064622080010
 }
