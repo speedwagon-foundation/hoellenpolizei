@@ -6,6 +6,9 @@ import org.javacord.api.listener.message.MessageCreateListener
 
 open class BaseListener: MessageCreateListener {
     override fun onMessageCreate(event: MessageCreateEvent?) {
-        if(event?.messageAuthor?.id == ConfigManager.instance.botId) return
+
+    }
+    fun checkIfAuthorIsBot(event: MessageCreateEvent): Boolean {
+        return event?.messageAuthor?.id == ConfigManager.instance.botId
     }
 }

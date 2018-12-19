@@ -11,7 +11,7 @@ import java.awt.Color
 class FileListener : BaseListener() {
 
     override fun onMessageCreate(event: MessageCreateEvent?) {
-        super.onMessageCreate(event)
+       if(super.checkIfAuthorIsBot(event!!)) return
         if (ConfigManager.instance.markupChannels.contains(event?.message?.channel?.id)) {
             event?.messageAttachments?.let { attachments ->
                 attachments.forEach {
