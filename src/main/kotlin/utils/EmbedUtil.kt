@@ -12,6 +12,7 @@ import kotlin.system.measureTimeMillis
 
 object EmbedUtil {
     fun getFileMetaInfo(message: Message): EmbedBuilder {
+        val displayName = message.author.displayName
         return EmbedBuilder()
             .setColor(Color.GREEN)
             .setAuthor(
@@ -25,7 +26,6 @@ object EmbedUtil {
                     ).iconUrl
                 )
             )
-            .addField("Author",message.author.displayName)
     }
 
 

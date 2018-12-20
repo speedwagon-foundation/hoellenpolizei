@@ -46,15 +46,13 @@ class FileListener : BaseListener() {
                 |```
             """.trimMargin("|")
             if (content.length < 2000) {
-                attachment.message.channel.sendMessage(EmbedUtil.getFileMetaInfo(attachment.message))
+                val embed = EmbedUtil.getFileMetaInfo(attachment.message)
+                attachment.message.channel.sendMessage(embed)
                     .thenAccept {
                         attachment.message.channel.sendMessage(message)
                         attachment.message.delete()
+                        println("Finished processing <${attachment.url.file}")
                     }
-//                MessageBuilder()
-//                    .setEmbed(EmbedUtil.getFileMetaInfo(attachment.message))
-//                    .append(message)
-//                    .send(attachment.message.channel)
             } else {
                 attachment.message.channel.sendMessage(EmbedUtil.getErrorEmbed("Error: Unable to parse file! Reason: File is longer than 2000 characters"))
             }
