@@ -1,7 +1,10 @@
 package managers
 
 import com.beust.klaxon.JsonObject
+import com.beust.klaxon.Klaxon
+import models.FileType
 import utils.parseResource
+import java.io.File
 
 class ConfigManager() {
     companion object {
@@ -9,7 +12,7 @@ class ConfigManager() {
         private val associatedJsonObject: JsonObject = parseResource("config")!!
     }
 
-    var markupChannels: MutableList<Long> = mutableListOf()
+    val markupChannels: MutableList<Long> = mutableListOf()
         get() {
             if (field.isNullOrEmpty()) {
                 field.addAll(associatedJsonObject.array("markup_channels")!!)
@@ -17,10 +20,10 @@ class ConfigManager() {
             return field
         }
 
-    var allowedLanguages: MutableMap<String, String> = mutableMapOf()
+    val allowedLanguages: MutableList<FileType> = mutableListOf()
         get() {
             if (field.isNullOrEmpty()) {
-                field.putAll(associatedJsonObject.obj("recognisedFileTypes")?.toMap()!!.mapValues { it.value.toString() })
+                field.addAll(Klaxon().parseArray(associatedJsonObject.array<Any>("recognisedFileTypes")!!.toJsonString())!!)
             }
             return field
         }
@@ -33,3 +36,7 @@ class ConfigManager() {
             return field
         }
 }
+
+fun List<FileType>.containsFileType(fileType: String) = this.map { it.fileType}.contains(fileType)
+
+fun List<FileType>.getByFileType(fileType: String) = this.first { it.fileType == fileType }
