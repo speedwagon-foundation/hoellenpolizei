@@ -26,6 +26,11 @@ Structure:
 
 ##### config.json
 
+Location: resources/config.json
+
+
+Structure:
+
 ```json
 {
   "markup_channels": [
