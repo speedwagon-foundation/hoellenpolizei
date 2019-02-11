@@ -39,23 +39,30 @@ class FileListener : BaseListener() {
         val fileExtension = FileUtils.getExtension(attachment.fileName)
 
         if (ConfigManager.instance.allowedLanguages.containsFileType(fileExtension)) {
-            val content = attachment.url.readText()
+            println("Processing file with filetype <$fileExtension>")
+            val content = attachment.proxyUrl.readText()
             val message = """
                 |```${ConfigManager.instance.allowedLanguages.getByFileType(fileExtension).highlightjs}
                 |$content
                 |```
             """.trimMargin("|")
+            println("Start process send message")
             if (content.length < 2000) {
+                println("Processing file smaller than 2000 characters")
+                println("Sending embed header")
                 val embed = EmbedUtil.getFileMetaInfo(attachment.message)
                 attachment.message.channel.sendMessage(embed)
                     .thenAccept {
+                        println("Sending file content")
                         attachment.message.channel.sendMessage(message)
                         attachment.message.delete()
-                        println("Finished processing <${attachment.url.file}")
+                        println("Finished processing <${attachment.url.file}>")
                     }
             } else {
                 attachment.message.channel.sendMessage(EmbedUtil.getErrorEmbed("Error: Unable to parse file! Reason: File is longer than 2000 characters"))
             }
+        } else {
+            attachment.message.channel.sendMessage(EmbedUtil.getErrorEmbed("Error: Unsupported file type!"))
         }
     }
 }
