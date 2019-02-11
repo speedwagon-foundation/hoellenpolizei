@@ -50,3 +50,20 @@ Structure:
 ```
 
 Supported languages can be found [here](https://highlightjs.org/static/demo)
+
+## Code Highlighting
+
+To use message highlighting, write the following in a supported channel:
+
+`<file extension> <code>`
+
+e.g.:
+
+```
+kt fun loadCredentials(): String? {
+    val fileName = "credentials"
+    return parseResource(fileName)?.string("token")
+}
+```
+
+Defaults to typescript as markup style.
