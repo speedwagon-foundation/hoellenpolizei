@@ -9,6 +9,6 @@ open class BaseListener: MessageCreateListener {
 
     }
     fun checkIfAuthorIsBot(event: MessageCreateEvent): Boolean {
-        return event?.messageAuthor?.id == ConfigManager.instance.botId
+        return event.messageAuthor?.id == ConfigManager.instance.botId
     }
 }
