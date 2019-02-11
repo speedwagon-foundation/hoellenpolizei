@@ -22,12 +22,12 @@
     {
       "fileType": "java",
       "highlightjs": "java",
-      "iconUrl": "java.png"
+      "iconUrl": "java.jpg"
     },
     {
       "fileType": "bash",
       "highlightjs": "bash",
-      "iconUrl": "bash.png"
+      "iconUrl": "bash.jpg"
     },
     {
       "fileType": "ts",
@@ -62,7 +62,17 @@
     {
       "fileType": "py",
       "highlightjs": "python",
-      "iconUrl": "python.png"
+      "iconUrl": "python.jpg"
+    },
+    {
+      "fileType": "xml",
+      "highlightjs": "xml",
+      "iconUrl": "xml.png"
+    },
+    {
+      "fileType": "json",
+      "highlightjs": "json",
+      "iconUrl": "json.png"
     }
   ],
   "botId": 522309064622080010
