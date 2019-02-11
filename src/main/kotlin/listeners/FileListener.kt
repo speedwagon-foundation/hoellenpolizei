@@ -17,9 +17,9 @@ import java.util.*
 class FileListener : BaseListener() {
 
     override fun onMessageCreate(event: MessageCreateEvent?) {
-       if(super.checkIfAuthorIsBot(event!!)) return
-        if (ConfigManager.instance.markupChannels.contains(event?.message?.channel?.id)) {
-            event?.messageAttachments?.let { attachments ->
+        if (super.checkIfAuthorIsBot(event!!)) return
+        if (ConfigManager.instance.markupChannels.contains(event.message?.channel?.id)) {
+            event.messageAttachments?.let { attachments ->
                 attachments.forEach {
                     it?.let { attachment ->
                         printCodeBlock(attachment)
@@ -39,16 +39,16 @@ class FileListener : BaseListener() {
         val fileExtension = FileUtils.getExtension(attachment.fileName)
 
         if (ConfigManager.instance.allowedLanguages.containsFileType(fileExtension)) {
-            println("Processing file with filetype <$fileExtension>")
-            val content = attachment.proxyUrl.readText()
+            println("Retrieving file content")
+            val content = String(attachment.downloadAsByteArray().get())
             val message = """
                 |```${ConfigManager.instance.allowedLanguages.getByFileType(fileExtension).highlightjs}
                 |$content
                 |```
             """.trimMargin("|")
+            println("Finished retrieving file content")
             println("Start process send message")
             if (content.length < 2000) {
-                println("Processing file smaller than 2000 characters")
                 println("Sending embed header")
                 val embed = EmbedUtil.getFileMetaInfo(attachment.message)
                 attachment.message.channel.sendMessage(embed)
