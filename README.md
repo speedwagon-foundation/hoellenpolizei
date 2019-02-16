@@ -31,7 +31,7 @@ Location: resources/config.json
 
 Structure:
 
-```json
+```
 {
   "markup_channels": [
     <channelid>,
