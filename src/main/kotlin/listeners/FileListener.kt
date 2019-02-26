@@ -40,6 +40,7 @@ class FileListener : BaseListener() {
 
         if (ConfigManager.instance.allowedLanguages.containsFileType(fileExtension)) {
             println("Retrieving file content")
+
             val content = String(attachment.downloadAsByteArray().get())
             val message = """
                 |```${ConfigManager.instance.allowedLanguages.getByFileType(fileExtension).highlightjs}
@@ -48,8 +49,10 @@ class FileListener : BaseListener() {
             """.trimMargin("|")
             println("Finished retrieving file content")
             println("Start process send message")
+
             if (content.length < 2000) {
                 println("Sending embed header")
+
                 val embed = EmbedUtil.getFileMetaInfo(attachment.message)
                 attachment.message.channel.sendMessage(embed)
                     .thenAccept {

@@ -26,6 +26,7 @@ object EmbedUtil {
                     ).iconUrl
                 )
             )
+            .addField("Author", displayName)
     }
 
 
