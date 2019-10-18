@@ -6,7 +6,7 @@ import java.io.File
 
 object FileUtils {
     fun getExtension(name: String) = name.split(".").last()
-    fun getResourceFolder() = """${System.getProperty("user.dir")}\src\main\resources"""
+    fun getResourceFolder() = """${System.getProperty("user.dir")}${File.separator}src${File.separator}main${File.separator}resources"""
 
-    fun getIcon(fileName: String) = File("""${getResourceFolder()}\icons\$fileName""")
+    fun getIcon(fileName: String) = File("""${getResourceFolder()}${File.separator}icons${File.separator}$fileName""")
 }

@@ -1,0 +1,79 @@
+{
+  "markup_channels": [
+    358633751670161408,
+    219101700777050114
+  ],
+  "recognisedFileTypes": [
+    {
+      "fileType": "kt",
+      "highlightjs": "kotlin",
+      "iconUrl": "kotlin.png"
+    },
+    {
+      "fileType": "css",
+      "highlightjs": "css",
+      "iconUrl": "css.png"
+    },
+    {
+      "fileType": "cs",
+      "highlightjs": "cs",
+      "iconUrl": "csharp.png"
+    },
+    {
+      "fileType": "java",
+      "highlightjs": "java",
+      "iconUrl": "java.jpg"
+    },
+    {
+      "fileType": "bash",
+      "highlightjs": "bash",
+      "iconUrl": "bash.jpg"
+    },
+    {
+      "fileType": "ts",
+      "highlightjs": "ts",
+      "iconUrl": "typescript.png"
+    },
+    {
+      "fileType": "js",
+      "highlightjs": "js",
+      "iconUrl": "javascript.png"
+    },
+    {
+      "fileType": "html",
+      "highlightjs": "html",
+      "iconUrl": "html.png"
+    },
+    {
+      "fileType": "scss",
+      "highlightjs": "scss",
+      "iconUrl": "sass.png"
+    },
+    {
+      "fileType": "sass",
+      "highlightjs": "scss",
+      "iconUrl": "sass.png"
+    },
+    {
+      "fileType": "less",
+      "highlightjs": "less",
+      "iconUrl": "less.png"
+    },
+    {
+      "fileType": "py",
+      "highlightjs": "python",
+      "iconUrl": "python.jpg"
+    },
+    {
+      "fileType": "xml",
+      "highlightjs": "xml",
+      "iconUrl": "xml.png"
+    },
+    {
+      "fileType": "json",
+      "highlightjs": "json",
+      "iconUrl": "json.png"
+    }
+  ],
+  "botId": 522309064622080010
+}

@@ -1,21 +1,20 @@
 package managers
 
-import com.beust.klaxon.JsonObject
 import com.beust.klaxon.Klaxon
+import models.Config
 import models.FileType
-import utils.parseResource
-import java.io.File
+import utils.parseConfig
 
 class ConfigManager() {
     companion object {
         val instance = ConfigManager()
-        private val associatedJsonObject: JsonObject = parseResource("config")!!
+        private val config: Config = parseConfig()!!
     }
 
     val markupChannels: MutableList<Long> = mutableListOf()
         get() {
             if (field.isNullOrEmpty()) {
-                field.addAll(associatedJsonObject.array("markup_channels")!!)
+                field.addAll(config.markup_channels)
             }
             return field
         }
@@ -23,7 +22,7 @@ class ConfigManager() {
     val allowedLanguages: MutableList<FileType> = mutableListOf()
         get() {
             if (field.isNullOrEmpty()) {
-                field.addAll(Klaxon().parseArray(associatedJsonObject.array<Any>("recognisedFileTypes")!!.toJsonString())!!)
+                field.addAll(config.recognisedFileTypes)
             }
             return field
         }
@@ -31,7 +30,7 @@ class ConfigManager() {
     var botId: Long = -1
         get() {
             if (field == (-1L)) {
-                field = associatedJsonObject.long("botId")!!
+                field = config.botId
             }
             return field
         }
