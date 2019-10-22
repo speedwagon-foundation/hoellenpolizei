@@ -1,9 +1,8 @@
 package managers
 
-import com.beust.klaxon.Klaxon
 import models.Config
 import models.FileType
-import utils.parseConfig
+import utils.JsonUtils.parseConfig
 
 class ConfigManager() {
     companion object {
