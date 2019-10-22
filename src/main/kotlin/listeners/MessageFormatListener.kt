@@ -21,11 +21,17 @@ class MessageFormatListener : BaseListener() {
                     lang = "ts"
                     content = event.messageContent
                 }
-                val message = """
+
+                val isUrl = Regex("""(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})""")
+                val message = if(isUrl.matches(content)) {
+                    content
+                } else {
+                    """
                     |```$lang
                     |$content
                     |```
-                """.trimMargin("|")
+                    """.trimMargin("|")
+                }
 
                 val embed = EmbedBuilder()
                     .setAuthor(event.message.author)

@@ -1,18 +1,12 @@
 package listeners
 
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import managers.ConfigManager
 import managers.containsFileType
 import managers.getByFileType
 import org.javacord.api.entity.message.MessageAttachment
-import org.javacord.api.entity.message.MessageBuilder
 import org.javacord.api.event.message.MessageCreateEvent
 import utils.EmbedUtil
 import utils.FileUtils
-import java.util.*
 
 class FileListener : BaseListener() {
 
@@ -29,7 +23,7 @@ class FileListener : BaseListener() {
         }
     }
 
-    fun printCodeBlock(attachment: MessageAttachment) {
+    private fun printCodeBlock(attachment: MessageAttachment) {
         println("Processing <${attachment.fileName}>")
         if (!attachment.fileName.contains(".")) {
             attachment.message.channel.sendMessage(EmbedUtil.getErrorEmbed("Error: Unable to parse file! Reason: No File extension"))
