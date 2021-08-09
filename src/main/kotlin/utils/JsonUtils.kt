@@ -17,7 +17,7 @@ object JsonUtils {
 
     private fun readFile(filename: String): String {
         val resourceDir = System.getProperty("user.dir")
-        val fullPath = """$resourceDir${File.separator}src${File.separator}main${File.separator}resources${File.separator}$filename.json"""
+        val fullPath = """$resourceDir${File.separator}$filename.json"""
         return File(fullPath).readText()
     }
 }

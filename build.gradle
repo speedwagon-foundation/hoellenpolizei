@@ -1,10 +1,10 @@
 plugins {
-    id 'org.jetbrains.kotlin.jvm' version '1.3.50'
+    id 'org.jetbrains.kotlin.jvm' version '1.5.0'
 }
 
 apply plugin: 'application'
 group 'com.github.lhofwimmer'
-version '1.0.4'
+version '1.0.5'
 mainClassName = 'MainKt'
 
 repositories {
@@ -15,10 +15,10 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
-    implementation 'org.javacord:javacord:3.0.4'
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.5.0'
+    implementation 'org.javacord:javacord:3.3.2'
     implementation 'com.beust:klaxon:5.0.1'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.2'
+    implementation 'org.jetbrains.kotlin:kotlin-reflect:1.5.0'
 }
 
 compileKotlin {
@@ -28,7 +28,13 @@ compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
 }
 
+tasks.withType(Jar) {
+    exclude("META-INF/BC1024KE.RSA", "META-INF/BC1024KE.SF", "META-INF/BC1024KE.DSA")
+    exclude("META-INF/BC2048KE.RSA", "META-INF/BC2048KE.SF", "META-INF/BC2048KE.DSA")
+    duplicatesStrategy = DuplicatesStrategy.INHERIT }
+
 jar {
+    tasks.withType(Copy) {duplicatesStrategy = DuplicatesStrategy.INHERIT }
     manifest {
         attributes(
                 'Main-Class': 'MainKt'

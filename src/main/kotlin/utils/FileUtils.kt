@@ -1,7 +1,6 @@
 package utils
 
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
+
 import java.io.File
 
 object FileUtils {

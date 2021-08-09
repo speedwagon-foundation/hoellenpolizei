@@ -1,8 +1,5 @@
 package utils
 
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
 import managers.ConfigManager
 import managers.getByFileType
 import org.javacord.api.entity.message.Message
